@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day Calculator</title>
+    <header>saureign eskch</header>
+    <style>
+        /* General styling */
+        header{
+            margin: left;
+        }
+
+        body {
+            
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           background-color: lightblue;
+          
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #000000;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #1f1d1d;
+        }
+
+        #daysInput {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008cba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f7f;
+        }
+
+        #result {
+            font-size: 30px;
+            font-family: urw chemery,cursive ;
+            color: #85048a;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+    <h1>Find the Day after a Given Number of Days</h1>
+    <p>Enter the number of days from today:</p>
+    <input type="number" id="daysInput" placeholder="Enter number of days">
+    <button onclick="calculateFutureDay()">Find Day</button>
+    <p id="result"></p>
+
+    <script>
+        // Array of day names
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        function calculateFutureDay() {
+            // Get the current date
+            const today = new Date();
+            const currentDayIndex = today.getDay();
+
+            // Get the input value
+            const numberOfDays = parseInt(document.getElementById("daysInput").value);
+
+            // Check if the input is valid
+            if (isNaN(numberOfDays) || numberOfDays < 0) {
+                document.getElementById("result").textContent = "Please enter a valid positive number.";
+                return;
+            }
+
+            // Calculate the future day index
+            const futureDayIndex = (currentDayIndex + numberOfDays) % 7;
+            const futureDay = daysOfWeek[futureDayIndex];
+
+            // Display the result
+            document.getElementById("result").textContent = "Today is " + daysOfWeek[currentDayIndex] + 
+            ". The day after " + numberOfDays + " day(s) will be " + futureDay + ".";
+        }
+    </script>
+     <img src="c:\Users\SauReign Eskch\OneDrive\Pictures\u.gif"  style="display: flexbox; size: 10px;">
+</body>
+</html>
